@@ -1,0 +1,15 @@
+<app-add-todo (add)="addTodo($event)"></app-add-todo>
+<div class="todo-stats">
+  <h1>Conteo de tareas: {{ getTotalTodosCount() }}</h1>
+  <h1>Tareas completadas: {{ getCompletedTodosCount() }}</h1>
+</div>
+
+<ul>
+  <li *ngFor="let todo of todos">
+    <app-todo-item
+      [todo]="todo"
+      (toggle)="toggleTodo(todo.id)"
+      (delete)="deleteTodo(todo.id)"
+    ></app-todo-item>
+  </li>
+</ul>

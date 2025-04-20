@@ -1,0 +1,14 @@
+<div class="todo-item">
+  <div class="todo-header">
+    <div class="todo-info">
+      <input type="checkbox" [checked]="todo.completed" (change)="toggle.emit(todo.id)" />
+      <span [ngClass]="{ 'todo-title': true, 'completed': todo.completed }">
+        {{ todo.title }} - {{ todo.description }}
+      </span>
+      <span *ngIf="todo.completed" class="completed">✔️</span>
+      <span *ngIf="!todo.completed" class="not-completed">❌</span>
+    </div>
+  </div>
+  <span class="updated">Última actualización: {{ todo.updatedAt }}</span>
+  <button (click)="delete.emit(todo.id)">Eliminar</button>
+</div>
